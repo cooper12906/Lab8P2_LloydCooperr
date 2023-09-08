@@ -32,10 +32,10 @@ public class frameMainn extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        tfEstiloNatacion = new javax.swing.JTextField();
-        tfDistancia = new javax.swing.JTextField();
         tfRecordActual = new javax.swing.JTextField();
         btnCrearEvento = new javax.swing.JButton();
+        cbDistanciaEvento = new javax.swing.JComboBox<>();
+        cbEstiloNatacionEvento = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -59,11 +59,11 @@ public class frameMainn extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         tfEdad = new javax.swing.JTextField();
         tfEstatura = new javax.swing.JTextField();
-        tfEstiloNatacionNadador = new javax.swing.JTextField();
-        tfDistanciaNadador = new javax.swing.JTextField();
         tfTiempoMasRapido = new javax.swing.JTextField();
         tfNumeroMedallas = new javax.swing.JTextField();
         btnCrearNadador = new javax.swing.JButton();
+        cbEstiloNatacion = new javax.swing.JComboBox<>();
+        cbDistancia = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,6 +87,10 @@ public class frameMainn extends javax.swing.JFrame {
             }
         });
 
+        cbDistanciaEvento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "100m", "200m", "400m", "800m" }));
+
+        cbEstiloNatacionEvento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Libre", "Pecho", "Dorso", "Mariposa" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -94,19 +98,16 @@ public class frameMainn extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(tfRecordActual))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2))
-                            .addGap(71, 71, 71)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(tfEstiloNatacion)
-                                .addComponent(tfDistancia, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfRecordActual)
+                            .addComponent(cbDistanciaEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbEstiloNatacionEvento, javax.swing.GroupLayout.Alignment.TRAILING, 0, 192, Short.MAX_VALUE)))
                     .addComponent(btnCrearEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
@@ -116,11 +117,11 @@ public class frameMainn extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(tfEstiloNatacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbEstiloNatacionEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(tfDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbDistanciaEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -268,45 +269,46 @@ public class frameMainn extends javax.swing.JFrame {
             }
         });
 
+        cbEstiloNatacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Libre", "Pecho", "Dorso", "Mariposa" }));
+
+        cbDistancia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "100m", "200m", "400m", "800m" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfNumeroMedallas))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfTiempoMasRapido))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(51, 51, 51)
-                                .addComponent(tfDistanciaNadador))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(29, 29, 29)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tfEdad, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbNacionalidad, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfNombreNadador, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfNumeroMedallas))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfTiempoMasRapido))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(51, 51, 51)
+                        .addComponent(cbDistancia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tfEdad, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbNacionalidad, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfNombreNadador, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfEstiloNatacionNadador, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                        .addGap(50, 50, 50)))
+                        .addComponent(cbEstiloNatacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(btnCrearNadador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
@@ -335,11 +337,11 @@ public class frameMainn extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(tfEstiloNatacionNadador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbEstiloNatacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(tfDistanciaNadador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
@@ -379,15 +381,13 @@ public class frameMainn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearEventoMouseClicked
-        String estiloNatacion = tfEstiloNatacion.getText();
-        int distancia = Integer.parseInt(tfDistancia.getText());
+        String estiloNatacion = cbEstiloNatacionEvento.getSelectedObjects().toString();
+        int distancia = Integer.parseInt(cbDistanciaEvento.getSelectedObjects().toString().replace("m", ""));
         double recordActual = Double.parseDouble(tfRecordActual.getText());
         
         eventos.add(new Evento(estiloNatacion, distancia, recordActual));
         JOptionPane.showMessageDialog(this,"Evento creado correctamente");
         
-        tfEstiloNatacion.setText("");
-        tfDistancia.setText("");
         tfRecordActual.setText("");
     }//GEN-LAST:event_btnCrearEventoMouseClicked
 
@@ -396,8 +396,8 @@ public class frameMainn extends javax.swing.JFrame {
         Pais nacionalidad = paises.get(cbNacionalidad.getSelectedIndex());
         int edad = Integer.parseInt(tfEdad.getText());
         double estatura = Double.parseDouble(tfEstatura.getText());
-        String estiloNatacion = tfEstiloNatacionNadador.getText();
-        int distancia = Integer.parseInt(tfDistanciaNadador.getText());
+        String estiloNatacion = cbEstiloNatacion.getSelectedObjects().toString();
+        int distancia = Integer.parseInt(cbDistancia.getSelectedObjects().toString().replace("m", ""));
         int tiempoMasRapido = Integer.parseInt(tfTiempoMasRapido.getText());
         int numeroMedallasConseguidas = Integer.parseInt(tfNumeroMedallas.getText());
         
@@ -407,8 +407,6 @@ public class frameMainn extends javax.swing.JFrame {
         tfNombreNadador.setText("");
         tfEdad.setText("");
         tfEstatura.setText("");
-        tfEstiloNatacionNadador.setText("");
-        tfDistanciaNadador.setText("");
         tfTiempoMasRapido.setText("");
         tfNumeroMedallas.setText("");
     }//GEN-LAST:event_btnCrearNadadorMouseClicked
@@ -428,7 +426,7 @@ public class frameMainn extends javax.swing.JFrame {
     public DefaultComboBoxModel updateComboBoxPaises(){
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         for (Pais pais : paises) {
-            modelo.addElement(paises);
+            modelo.addElement(pais);
         }
         return modelo;
     }
@@ -471,6 +469,10 @@ public class frameMainn extends javax.swing.JFrame {
     private javax.swing.JButton btnCrearEvento;
     private javax.swing.JButton btnCrearNadador;
     private javax.swing.JButton btnCrearPais;
+    private javax.swing.JComboBox<String> cbDistancia;
+    private javax.swing.JComboBox<String> cbDistanciaEvento;
+    private javax.swing.JComboBox<String> cbEstiloNatacion;
+    private javax.swing.JComboBox<String> cbEstiloNatacionEvento;
     private javax.swing.JComboBox<String> cbNacionalidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -494,12 +496,8 @@ public class frameMainn extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField tfDistancia;
-    private javax.swing.JTextField tfDistanciaNadador;
     private javax.swing.JTextField tfEdad;
     private javax.swing.JTextField tfEstatura;
-    private javax.swing.JTextField tfEstiloNatacion;
-    private javax.swing.JTextField tfEstiloNatacionNadador;
     private javax.swing.JTextField tfNombreNadador;
     private javax.swing.JTextField tfNombrePais;
     private javax.swing.JTextField tfNumeroMedallas;
