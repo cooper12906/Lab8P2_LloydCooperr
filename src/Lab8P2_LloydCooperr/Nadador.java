@@ -10,9 +10,9 @@ public class Nadador {
     private int tiempoMasRapido;
     private int numeroMedallasConseguidas;
 
-    public Nadador(String nombre, String nacionalidad, int edad, double estatura, String estiloNatacion, int distancia, int tiempoMasRapido, int numeroMedallasConseguidas) {
+    public Nadador(String nombre, Pais nacionalidad, int edad, double estatura, String estiloNatacion, int distancia, int tiempoMasRapido, int numeroMedallasConseguidas) {
         this.nombre = nombre;
-        this.nacionalidad = nacionalidad;
+        this.nacionalidad = nacionalidad.getNombre();
         this.edad = edad;
         this.estatura = estatura;
         this.estiloNatacion = estiloNatacion;
