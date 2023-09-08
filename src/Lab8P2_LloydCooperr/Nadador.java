@@ -1,6 +1,8 @@
 package Lab8P2_LloydCooperr;
 
-public class Nadador {
+import java.io.Serializable;
+
+public class Nadador implements Serializable {
     private String nombre;
     private String nacionalidad;
     private int edad;
@@ -9,7 +11,8 @@ public class Nadador {
     private int distancia;
     private int tiempoMasRapido;
     private int numeroMedallasConseguidas;
-
+    private static final long SerialVersionUID=555L;
+    
     public Nadador(String nombre, Pais nacionalidad, int edad, double estatura, String estiloNatacion, int distancia, int tiempoMasRapido, int numeroMedallasConseguidas) {
         this.nombre = nombre;
         this.nacionalidad = nacionalidad.getNombre();
@@ -87,6 +90,6 @@ public class Nadador {
 
     @Override
     public String toString() {
-        return nombre + nacionalidad + estiloNatacion + distancia;
+        return nombre;
     }
 }

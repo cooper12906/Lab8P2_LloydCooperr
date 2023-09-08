@@ -1,10 +1,13 @@
 package Lab8P2_LloydCooperr;
 
-public class Evento {
+import java.io.Serializable;
+
+public class Evento implements Serializable {
     private String estiloNatacion;
     private int distancia;
     private int recordActual;
-
+    private static final long SerialVersionUID=555L;
+    
     public Evento(String estiloNatacion, int distancia, int recordActual) {
         this.estiloNatacion = estiloNatacion;
         this.distancia = distancia;

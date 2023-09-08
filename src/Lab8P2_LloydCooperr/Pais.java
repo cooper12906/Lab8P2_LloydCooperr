@@ -1,11 +1,13 @@
 package Lab8P2_LloydCooperr;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Pais {
+public class Pais implements Serializable {
     private String nombre;
     private ArrayList <Nadador> nadadores = new ArrayList();
     private int numeroMedallas;
+    private static final long SerialVersionUID=555L;
 
     public Pais(String nombre, int numeroMedallas) {
         this.nombre = nombre;

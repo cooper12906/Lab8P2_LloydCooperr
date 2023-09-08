@@ -76,7 +76,6 @@ public class frameMainn extends javax.swing.JFrame {
         btnEliminarNadador = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         cbNadadores = new javax.swing.JComboBox<>();
-        jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -96,6 +95,11 @@ public class frameMainn extends javax.swing.JFrame {
         btnCrearNadador = new javax.swing.JButton();
         cbEstiloNatacion = new javax.swing.JComboBox<>();
         cbDistancia = new javax.swing.JComboBox<>();
+        jPanel11 = new javax.swing.JPanel();
+        scrollpane = new javax.swing.JScrollPane();
+        tableJugadores = new javax.swing.JTable();
+        btnUpdateTable = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -485,19 +489,6 @@ public class frameMainn extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Modificar/Eliminar nadador", jPanel6);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Modificar/Eliminar pais", jPanel7);
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -630,6 +621,53 @@ public class frameMainn extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Crear nadador", jPanel3);
 
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+
+        tableJugadores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scrollpane.setViewportView(tableJugadores);
+
+        btnUpdateTable.setText("Update table");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(scrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnUpdateTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnUpdateTable))
+                    .addComponent(scrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Listar nadadores", jPanel11);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -655,38 +693,6 @@ public class frameMainn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCrearEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearEventoMouseClicked
-        String estiloNatacion = "";
-        int distancia = 0;
-        
-        if (cbEstiloNatacion.getSelectedIndex() == 0) {
-            estiloNatacion = "Libre";
-        } else if (cbEstiloNatacion.getSelectedIndex() == 1){
-            estiloNatacion = "Pecho";
-        } else if (cbEstiloNatacion.getSelectedIndex() == 2){
-            estiloNatacion = "Dorso";
-        } else if (cbEstiloNatacion.getSelectedIndex() == 3){
-            estiloNatacion = "Mariposa";
-        }
-        
-        if (cbDistanciaEvento.getSelectedIndex() == 0) {
-            distancia = 100;
-        } else if (cbDistanciaEvento.getSelectedIndex() == 1){
-            distancia = 200;
-        } else if (cbDistanciaEvento.getSelectedIndex() == 2){
-            distancia = 400;
-        } else if (cbDistanciaEvento.getSelectedIndex() == 3){
-            distancia = 800;
-        }
-        int recordActual = Integer.parseInt(tfRecordActual.getText());
-        
-        eventos.add(new Evento(estiloNatacion, distancia, recordActual));
-        cbEventos.setModel(updateComboBoxEventos());
-        JOptionPane.showMessageDialog(this,"Evento creado correctamente");
-        
-        tfRecordActual.setText("");
-    }//GEN-LAST:event_btnCrearEventoMouseClicked
-
     private void btnCrearNadadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearNadadorMouseClicked
         String nombre = tfNombreNadador.getText();
         Pais nacionalidad = paises.get(cbNacionalidad.getSelectedIndex());
@@ -694,7 +700,7 @@ public class frameMainn extends javax.swing.JFrame {
         double estatura = Double.parseDouble(tfEstatura.getText());
         String estiloNatacion = cbEstiloNatacion.getSelectedObjects().toString();
         int distancia = 0;
-        
+
         if (cbDistancia.getSelectedIndex() == 0) {
             distancia = 100;
         } else if (cbDistancia.getSelectedIndex() == 1){
@@ -706,15 +712,16 @@ public class frameMainn extends javax.swing.JFrame {
         }
         int tiempoMasRapido = Integer.parseInt(tfTiempoMasRapido.getText());
         int numeroMedallasConseguidas = Integer.parseInt(tfNumeroMedallas.getText());
-        
+
         if (nacionalidad.getNadadores().size() < 2) {
+            nacionalidad.getNadadores().add(new Nadador(nombre, nacionalidad, edad, estatura, estiloNatacion, distancia, tiempoMasRapido, numeroMedallasConseguidas));
             nadadores.add(new Nadador(nombre, nacionalidad , edad, estatura, estiloNatacion, distancia, tiempoMasRapido, numeroMedallasConseguidas));
             cbNadadores.setModel(updateComboBoxNadadores());
             JOptionPane.showMessageDialog(this,"Nadador creado correctamente");
         } else {
             JOptionPane.showMessageDialog(this,"Ya hay 2 nadadores en el pais");
         }
-        
+
         tfNombreNadador.setText("");
         tfEdad.setText("");
         tfEstatura.setText("");
@@ -722,21 +729,15 @@ public class frameMainn extends javax.swing.JFrame {
         tfNumeroMedallas.setText("");
     }//GEN-LAST:event_btnCrearNadadorMouseClicked
 
-    private void btnCrearPaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPaisMouseClicked
-        String nombrePais = tfNombrePais.getText();
-        int numeroMedallas = Integer.parseInt(tfNumeroMedallasPais.getText());
-        
-        paises.add(new Pais(nombrePais, numeroMedallas));
-        cbNacionalidad.setModel(updateComboBoxPaises());
-        JOptionPane.showMessageDialog(this,"Pais creado correctamente");
-        
-        tfNombrePais.setText("");
-        tfNumeroMedallasPais.setText("");
-    }//GEN-LAST:event_btnCrearPaisMouseClicked
+    private void btnEliminarNadadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarNadadorMouseClicked
+        nadadores.remove(cbNadadores.getSelectedIndex());
+        cbNadadores.setModel(updateComboBoxNadadores());
+        JOptionPane.showMessageDialog(this,"Nadador eliminado correctamente");
+    }//GEN-LAST:event_btnEliminarNadadorMouseClicked
 
-    private void btnModificarEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarEventoMouseClicked
-        
-    }//GEN-LAST:event_btnModificarEventoMouseClicked
+    private void btnModificarNadadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarNadadorMouseClicked
+
+    }//GEN-LAST:event_btnModificarNadadorMouseClicked
 
     private void btnEliminarEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarEventoMouseClicked
         eventos.remove(cbEventos.getSelectedIndex());
@@ -744,13 +745,83 @@ public class frameMainn extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this,"Evento eliminado correctamente");
     }//GEN-LAST:event_btnEliminarEventoMouseClicked
 
-    private void btnModificarNadadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarNadadorMouseClicked
+    private void btnModificarEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarEventoMouseClicked
+        int index = cbEventos.getSelectedIndex();
+        int distancia = 0;
+        String estiloNatacion = "";
+        int recordActual = Integer.parseInt(tfNuevoRecordActual.getText());
         
-    }//GEN-LAST:event_btnModificarNadadorMouseClicked
+        if (cbEstiloNatacion1.getSelectedIndex() == 0) {
+            estiloNatacion = "Libre";
+        } else if (cbEstiloNatacion1.getSelectedIndex() == 1){
+            estiloNatacion = "Pecho";
+        } else if (cbEstiloNatacion1.getSelectedIndex() == 2){
+            estiloNatacion = "Dorso";
+        } else if (cbEstiloNatacion1.getSelectedIndex() == 3){
+            estiloNatacion = "Mariposa";
+        }
+        
+        if (cbDistanciaEvento1.getSelectedIndex() == 0) {
+            distancia = 100;
+        } else if (cbDistanciaEvento1.getSelectedIndex() == 1){
+            distancia = 200;
+        } else if (cbDistanciaEvento1.getSelectedIndex() == 2){
+            distancia = 400;
+        } else if (cbDistanciaEvento1.getSelectedIndex() == 3){
+            distancia = 800;
+        }
+        eventos.get(index).setEstiloNatacion(estiloNatacion);
+        eventos.get(index).setDistancia(distancia);
+        eventos.get(index).setRecordActual(recordActual);
+        
+        JOptionPane.showMessageDialog(this,"Evento modificado correctamente");
+        
+        tfNuevoRecordActual.setText("");
+    }//GEN-LAST:event_btnModificarEventoMouseClicked
 
-    private void btnEliminarNadadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarNadadorMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarNadadorMouseClicked
+    private void btnCrearPaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPaisMouseClicked
+        String nombrePais = tfNombrePais.getText();
+        int numeroMedallas = Integer.parseInt(tfNumeroMedallasPais.getText());
+
+        paises.add(new Pais(nombrePais, numeroMedallas));
+        cbNacionalidad.setModel(updateComboBoxPaises());
+        JOptionPane.showMessageDialog(this,"Pais creado correctamente");
+
+        tfNombrePais.setText("");
+        tfNumeroMedallasPais.setText("");
+    }//GEN-LAST:event_btnCrearPaisMouseClicked
+
+    private void btnCrearEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearEventoMouseClicked
+        String estiloNatacion = "";
+        int distancia = 0;
+
+        if (cbEstiloNatacion.getSelectedIndex() == 0) {
+            estiloNatacion = "Libre";
+        } else if (cbEstiloNatacion.getSelectedIndex() == 1){
+            estiloNatacion = "Pecho";
+        } else if (cbEstiloNatacion.getSelectedIndex() == 2){
+            estiloNatacion = "Dorso";
+        } else if (cbEstiloNatacion.getSelectedIndex() == 3){
+            estiloNatacion = "Mariposa";
+        }
+
+        if (cbDistanciaEvento.getSelectedIndex() == 0) {
+            distancia = 100;
+        } else if (cbDistanciaEvento.getSelectedIndex() == 1){
+            distancia = 200;
+        } else if (cbDistanciaEvento.getSelectedIndex() == 2){
+            distancia = 400;
+        } else if (cbDistanciaEvento.getSelectedIndex() == 3){
+            distancia = 800;
+        }
+        int recordActual = Integer.parseInt(tfRecordActual.getText());
+
+        eventos.add(new Evento(estiloNatacion, distancia, recordActual));
+        cbEventos.setModel(updateComboBoxEventos());
+        JOptionPane.showMessageDialog(this,"Evento creado correctamente");
+
+        tfRecordActual.setText("");
+    }//GEN-LAST:event_btnCrearEventoMouseClicked
     
     public DefaultComboBoxModel updateComboBoxPaises(){
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -818,6 +889,7 @@ public class frameMainn extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarNadador;
     private javax.swing.JButton btnModificarEvento;
     private javax.swing.JButton btnModificarNadador;
+    private javax.swing.JButton btnUpdateTable;
     private javax.swing.JComboBox<String> cbDistancia;
     private javax.swing.JComboBox<String> cbDistancia1;
     private javax.swing.JComboBox<String> cbDistanciaEvento;
@@ -830,6 +902,7 @@ public class frameMainn extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbNacionalidad;
     private javax.swing.JComboBox<String> cbNacionalidad1;
     private javax.swing.JComboBox<String> cbNadadores;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -858,15 +931,17 @@ public class frameMainn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JScrollPane scrollpane;
+    private javax.swing.JTable tableJugadores;
     private javax.swing.JTextField tfEdad;
     private javax.swing.JTextField tfEdad1;
     private javax.swing.JTextField tfEstatura;
