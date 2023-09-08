@@ -38,7 +38,7 @@ public class Pais {
 
     @Override
     public String toString() {
-        return nombre + ", nadadores=" + nadadores + ", numeroMedallas=" + numeroMedallas + '}';
+        return nombre;
     }
     
     

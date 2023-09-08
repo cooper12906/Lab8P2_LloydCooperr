@@ -1,6 +1,7 @@
 package Lab8P2_LloydCooperr;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 public class frameMainn extends javax.swing.JFrame {
@@ -13,6 +14,7 @@ public class frameMainn extends javax.swing.JFrame {
      */
     public frameMainn() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -35,6 +37,11 @@ public class frameMainn extends javax.swing.JFrame {
         tfRecordActual = new javax.swing.JTextField();
         btnCrearEvento = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        btnCrearPais = new javax.swing.JButton();
+        tfNumeroMedallasPais = new javax.swing.JTextField();
+        tfNombrePais = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -125,15 +132,53 @@ public class frameMainn extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Crear evento", jPanel2);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Nombre");
+
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Numero de medallas");
+
+        btnCrearPais.setText("Crear pais");
+        btnCrearPais.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearPaisMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCrearPais, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfNombrePais, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(tfNumeroMedallasPais))))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tfNombrePais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(tfNumeroMedallasPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCrearPais, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Crear pais", jPanel4);
@@ -368,6 +413,25 @@ public class frameMainn extends javax.swing.JFrame {
         tfNumeroMedallas.setText("");
     }//GEN-LAST:event_btnCrearNadadorMouseClicked
 
+    private void btnCrearPaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPaisMouseClicked
+        String nombrePais = tfNombrePais.getText();
+        int numeroMedallas = Integer.parseInt(tfNumeroMedallasPais.getText());
+        
+        paises.add(new Pais(nombrePais, numeroMedallas));
+        cbNacionalidad.setModel(updateComboBoxPaises());
+        JOptionPane.showMessageDialog(this,"Pais creado correctamente");
+        
+        tfNombrePais.setText("");
+        tfNumeroMedallasPais.setText("");
+    }//GEN-LAST:event_btnCrearPaisMouseClicked
+    
+    public DefaultComboBoxModel updateComboBoxPaises(){
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (Pais pais : paises) {
+            modelo.addElement(paises);
+        }
+        return modelo;
+    }
     /**
      * @param args the command line arguments
      */
@@ -406,10 +470,13 @@ public class frameMainn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearEvento;
     private javax.swing.JButton btnCrearNadador;
+    private javax.swing.JButton btnCrearPais;
     private javax.swing.JComboBox<String> cbNacionalidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -434,7 +501,9 @@ public class frameMainn extends javax.swing.JFrame {
     private javax.swing.JTextField tfEstiloNatacion;
     private javax.swing.JTextField tfEstiloNatacionNadador;
     private javax.swing.JTextField tfNombreNadador;
+    private javax.swing.JTextField tfNombrePais;
     private javax.swing.JTextField tfNumeroMedallas;
+    private javax.swing.JTextField tfNumeroMedallasPais;
     private javax.swing.JTextField tfRecordActual;
     private javax.swing.JTextField tfTiempoMasRapido;
     // End of variables declaration//GEN-END:variables
