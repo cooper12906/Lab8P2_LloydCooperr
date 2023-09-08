@@ -3,9 +3,9 @@ package Lab8P2_LloydCooperr;
 public class Evento {
     private String estiloNatacion;
     private int distancia;
-    private double recordActual;
+    private int recordActual;
 
-    public Evento(String estiloNatacion, int distancia, double recordActual) {
+    public Evento(String estiloNatacion, int distancia, int recordActual) {
         this.estiloNatacion = estiloNatacion;
         this.distancia = distancia;
         this.recordActual = recordActual;
@@ -31,12 +31,12 @@ public class Evento {
         return recordActual;
     }
 
-    public void setRecordActual(double recordActual) {
+    public void setRecordActual(int recordActual) {
         this.recordActual = recordActual;
     }
 
     @Override
     public String toString() {
-        return "Evento{" + "estiloNatacion=" + estiloNatacion + ", distancia=" + distancia + ", recordActual=" + recordActual + '}';
+        return estiloNatacion +  distancia + recordActual;
     }
 }

@@ -87,6 +87,6 @@ public class Nadador {
 
     @Override
     public String toString() {
-        return nombre + ", nacionalidad=" + nacionalidad + ", edad=" + edad + ", estatura=" + estatura + ", estiloNatacion=" + estiloNatacion + ", distancia=" + distancia + ", tiempoMasRapido=" + tiempoMasRapido + ", numeroMedallasConseguidas=" + numeroMedallasConseguidas + '}';
+        return nombre + nacionalidad + estiloNatacion + distancia;
     }
 }
