@@ -33,6 +33,7 @@ public class frameMainn extends javax.swing.JFrame {
         cbNadador1.setModel(updateComboBoxNadadores());
         cbNadador2.setModel(updateComboBoxNadadores());
         cbNadador3.setModel(updateComboBoxNadadores());
+        cbEventoSimulacion.setModel(updateComboBoxEventos());
     }
 
     /**
