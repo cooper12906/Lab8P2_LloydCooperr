@@ -13,6 +13,10 @@ public class Evento implements Serializable {
         this.distancia = distancia;
         this.recordActual = recordActual;
     }
+    
+    public Evento(){
+        
+    }
 
     public String getEstiloNatacion() {
         return estiloNatacion;

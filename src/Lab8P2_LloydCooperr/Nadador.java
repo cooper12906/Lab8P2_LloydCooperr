@@ -90,6 +90,6 @@ public class Nadador implements Serializable {
 
     @Override
     public String toString() {
-        return nombre;
+        return nombre + "\n" + distancia;
     }
 }

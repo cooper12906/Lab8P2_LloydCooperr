@@ -3,6 +3,7 @@ package Lab8P2_LloydCooperr;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 import javax.swing.table.DefaultTableModel;
 
 public class frameMainn extends javax.swing.JFrame {
@@ -10,12 +11,23 @@ public class frameMainn extends javax.swing.JFrame {
     private ArrayList <Evento> eventos = new ArrayList();
     private ArrayList <Nadador> nadadores = new ArrayList();
     private ArrayList <Pais> paises = new ArrayList();
+    adminPais ap = new adminPais("./PaisesParticipantes.lab");
+    adminNadador an = new adminNadador("./Nadadores.lab");
+    adminEvento ae = new adminEvento("./Eventos.lab");
     /**
      * Creates new form frameMainn
      */
     public frameMainn() {
         initComponents();
         this.setLocationRelativeTo(null);
+        ap.leerAPais();
+        paises = ap.getPaises();
+        an.leerANadador();
+        nadadores = an.getNadadores();
+        ae.leerAEvento();
+        eventos = ae.getEventos();
+        
+        
     }
 
     /**
@@ -792,6 +804,11 @@ public class frameMainn extends javax.swing.JFrame {
             cbNadador2.setModel(updateComboBoxNadadores());
             cbNadador3.setModel(updateComboBoxNadadores());
             JOptionPane.showMessageDialog(this,"Nadador creado correctamente");
+            an.leerANadador();
+                an.add(new Nadador(nombre, nacionalidad, edad, estatura, estiloNatacion, distancia, tiempoMasRapido, numeroMedallasConseguidas));
+                an.escribirANadador();
+                ap.leerAPais();
+                ap.getPaises().get(cbNacionalidad.getSelectedIndex()).getNadadores().add(new Nadador(nombre, nacionalidad, edad, estatura, estiloNatacion, distancia, tiempoMasRapido, numeroMedallasConseguidas));
         } else {
             JOptionPane.showMessageDialog(this,"Ya hay 2 nadadores en el pais");
         }
@@ -938,6 +955,7 @@ public class frameMainn extends javax.swing.JFrame {
     private void btnIniciarSimulacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSimulacionMouseClicked
         
     }//GEN-LAST:event_btnIniciarSimulacionMouseClicked
+    
     
     public DefaultComboBoxModel updateComboBoxPaises(){
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
