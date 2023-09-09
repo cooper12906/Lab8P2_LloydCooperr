@@ -937,6 +937,9 @@ public class frameMainn extends javax.swing.JFrame {
         paises.add(new Pais(nombrePais, numeroMedallas));
         cbNacionalidad.setModel(updateComboBoxPaises());
         cbPaises.setModel(updateComboBoxPaises());
+        ap.leerAPais();
+                ap.add(new Pais(nombrePais, numeroMedallas));
+                ap.escribirAPais();
         JOptionPane.showMessageDialog(this,"Pais creado correctamente");
 
         tfNombrePais.setText("");
