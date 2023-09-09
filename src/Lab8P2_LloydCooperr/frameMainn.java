@@ -26,6 +26,10 @@ public class frameMainn extends javax.swing.JFrame {
         nadadores = an.getNadadores();
         ae.leerAEvento();
         eventos = ae.getEventos();
+        cbPaises.setModel(updateComboBoxPaises());
+        cbEventos.setModel(updateComboBoxEventos());
+        cbNacionalidad.setModel(updateComboBoxPaises());
+        cbNadadores.setModel(updateComboBoxNadadores());
         
         
     }
@@ -823,6 +827,9 @@ public class frameMainn extends javax.swing.JFrame {
     private void btnEliminarNadadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarNadadorMouseClicked
         nadadores.remove(cbNadadores.getSelectedIndex());
         cbNadadores.setModel(updateComboBoxNadadores());
+        an.leerANadador();
+            an.getNadadores().remove(cbNadadores.getSelectedIndex());
+            an.escribirANadador();
         JOptionPane.showMessageDialog(this,"Nadador eliminado correctamente");
     }//GEN-LAST:event_btnEliminarNadadorMouseClicked
 
@@ -853,6 +860,16 @@ public class frameMainn extends javax.swing.JFrame {
         nadadores.get(index).setTiempoMasRapido(tiempoMasRapido);
         nadadores.get(index).setNumeroMedallasConseguidas(numeroMedallas);
         
+        an.leerANadador();
+        an.getNadadores().get(index).setNombre(nombreNadador);
+        an.getNadadores().get(index).setEdad(edadNadador);
+        an.getNadadores().get(index).setEstatura(estatura);
+        an.getNadadores().get(index).setEstiloNatacion(estiloNatacion);
+        an.getNadadores().get(index).setDistancia(distancia);
+        an.getNadadores().get(index).setTiempoMasRapido(tiempoMasRapido);
+        an.getNadadores().get(index).setNumeroMedallasConseguidas(numeroMedallas);
+        an.escribirANadador();
+        
         JOptionPane.showMessageDialog(this,"Nadador modificado correctamente");
         
         tfNombreNadador1.setText("");
@@ -865,6 +882,9 @@ public class frameMainn extends javax.swing.JFrame {
     private void btnEliminarEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarEventoMouseClicked
         eventos.remove(cbEventos.getSelectedIndex());
         cbEventos.setModel(updateComboBoxEventos());
+        ae.leerAEvento();
+            ae.getEventos().remove(cbEventos.getSelectedIndex());
+            ae.escribirAEvento();
         JOptionPane.showMessageDialog(this,"Evento eliminado correctamente");
     }//GEN-LAST:event_btnEliminarEventoMouseClicked
 
@@ -896,6 +916,12 @@ public class frameMainn extends javax.swing.JFrame {
         eventos.get(index).setEstiloNatacion(estiloNatacion);
         eventos.get(index).setDistancia(distancia);
         eventos.get(index).setRecordActual(recordActual);
+        
+        ae.leerAEvento();
+        ae.getEventos().get(index).setEstiloNatacion(estiloNatacion);
+        ae.getEventos().get(index).setDistancia(distancia);
+        ae.getEventos().get(index).setRecordActual(recordActual);
+            ae.escribirAEvento();
         
         JOptionPane.showMessageDialog(this,"Evento modificado correctamente");
         
@@ -943,6 +969,9 @@ public class frameMainn extends javax.swing.JFrame {
         eventos.add(new Evento(estiloNatacion, distancia, recordActual));
         cbEventos.setModel(updateComboBoxEventos());
         cbEventoSimulacion.setModel(updateComboBoxEventos());
+        ae.leerAEvento();
+            ae.add(new Evento(estiloNatacion, distancia, recordActual));
+            ae.escribirAEvento();
         JOptionPane.showMessageDialog(this,"Evento creado correctamente");
 
         tfRecordActual.setText("");
