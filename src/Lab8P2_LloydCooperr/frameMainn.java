@@ -813,6 +813,7 @@ public class frameMainn extends javax.swing.JFrame {
                 an.escribirANadador();
                 ap.leerAPais();
                 ap.getPaises().get(cbNacionalidad.getSelectedIndex()).getNadadores().add(new Nadador(nombre, nacionalidad, edad, estatura, estiloNatacion, distancia, tiempoMasRapido, numeroMedallasConseguidas));
+                ap.escribirAPais();
         } else {
             JOptionPane.showMessageDialog(this,"Ya hay 2 nadadores en el pais");
         }
